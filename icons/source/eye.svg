@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Eagle Eyes — extension icon (idle / default state).
+  This is the editable source. Re-export to PNG at 16/32/48/128 px and
+  drop the result into ../icon{16,32,48,128}.png. ImageMagick example:
+    magick -background none eye.svg -resize 128x128 ../icon128.png
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <radialGradient id="iris" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="60%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Outer eye almond shape -->
+  <path d="M64 26 C 30 26, 8 56, 8 64 C 8 72, 30 102, 64 102 C 98 102, 120 72, 120 64 C 120 56, 98 26, 64 26 Z"
+        fill="#0f172a" stroke="#e5e7eb" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Iris -->
+  <circle cx="64" cy="64" r="28" fill="url(#iris)"/>
+
+  <!-- Pupil -->
+  <circle cx="64" cy="64" r="12" fill="#0b1220"/>
+
+  <!-- Catch-light highlight -->
+  <circle cx="56" cy="56" r="5" fill="#ffffff" opacity="0.85"/>
+</svg>

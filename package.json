@@ -1,0 +1,16 @@
+{
+  "name": "eagle-eyes",
+  "version": "2.4.0",
+  "private": true,
+  "description": "Eagle Eyes — Chrome extension for API reverse-engineering and analysis. Tooling-only package.json (the extension itself has no runtime dependencies).",
+  "scripts": {
+    "lint": "eslint .",
+    "check:syntax": "node -e \"require('fs').readdirSync('.').filter(f=>f.endsWith('.js')).forEach(f=>require('child_process').execSync('node --check '+f,{stdio:'inherit'}))\"",
+    "check:manifest": "node -e \"JSON.parse(require('fs').readFileSync('manifest.json'))\"",
+    "test:unit": "node --test test/",
+    "test": "npm run check:manifest && npm run check:syntax && npm run test:unit && npm run lint"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}

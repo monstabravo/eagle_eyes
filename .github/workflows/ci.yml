@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate manifest.json
+        run: npm run check:manifest
+      - name: Syntax check all extension JS files
+        run: |
+          for f in *.js; do node --check "$f"; done
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Install dev dependencies
+        run: npm install --no-audit --no-fund
+      - name: Lint
+        run: npm run lint

@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build output / packaging
+dist/
+build/
+*.zip
+*.crx
+*.pem
+
+# Captured API export files (these are produced by the extension)
+*(AI).json
+*(HU).txt
+
+# Local dev / temp files
+.env
+.env.local
+*.tmp
+*.bak
+.cache/

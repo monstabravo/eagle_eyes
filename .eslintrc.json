@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "webextensions": true,
+    "serviceworker": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "script"
+  },
+  "globals": {
+    "APIAnalyzer": "readonly",
+    "APIDetectors": "readonly",
+    "CodeGenerator": "readonly",
+    "SecurityAnalyzer": "readonly",
+    "EAGLE_EYES_PATTERNS": "readonly"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "args": "none", "varsIgnorePattern": "^_" }],
+    "no-undef": "error",
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-redeclare": "error",
+    "no-dupe-keys": "error",
+    "no-dupe-args": "error",
+    "no-dupe-else-if": "error",
+    "no-duplicate-case": "error",
+    "no-cond-assign": "error",
+    "no-self-compare": "error",
+    "no-unreachable": "error",
+    "no-constant-condition": "warn",
+    "use-isnan": "error",
+    "valid-typeof": "error",
+    "eqeqeq": ["warn", "smart"]
+  }
+}

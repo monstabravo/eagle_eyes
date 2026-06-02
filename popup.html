@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Recorder</title>
+    <style>
+        body { width: 300px; margin: 0; padding: 16px; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans TC',Arial,sans-serif; background: #111827; color: #e5e7eb; }
+        h1 { font-size: 18px; margin: 0 0 12px; }
+        ul { margin: 4px 0; padding-left: 20px; font-size: 13px; }
+        .section { background: #1f2937; border: 1px solid #374151; border-radius: 10px; padding: 12px; margin-bottom: 12px; }
+        .section-title { font-weight: bold; margin-bottom: 6px; }
+        .muted { font-size: 13px; color: #94a3b8; }
+        .accent { color: #10b981; }
+        .shortcut { background: #374151; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace,Consolas,monospace; font-weight: 600; }
+        .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+        .row-inline { display: flex; align-items: center; gap: 8px; }
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; cursor: pointer; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #374151; transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #3b82f6; }
+        input:checked + .slider:before { transform: translateX(20px); }
+        .export-status { display: none; padding: 10px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; line-height: 1.4; }
+        .export-status.success { display: block; background: #064e3b; border: 1px solid #10b981; color: #d1fae5; }
+        .export-status.error { display: block; background: #7f1d1d; border: 1px solid #ef4444; color: #fee2e2; }
+        .export-status .timestamp { color: #94a3b8; font-size: 11px; margin-top: 4px; }
+    </style>
+    <script defer src="popup.js"></script>
+  </head>
+  <body>
+    <h1>Eye Recorder</h1>
+    <div id="export-status" class="export-status"></div>
+    <div class="section">
+      <div class="row">
+        <div>Status：<span id="toggle-state">...</span></div>
+        <div class="row-inline">
+          <span>Enabled</span>
+          <label class="switch">
+            <input id="ext-toggle" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div>Record：<span class="shortcut">Alt+R</span> start / stop & export</div>
+      <div style="margin-top:6px;">Highlight area: hold <span class="shortcut">Alt</span> and drag the mouse</div>
+    </div>
+    <div class="section">
+      <div class="section-title">🎯 API Analysis</div>
+      <div class="muted">Pressing Alt+R to stop generates 2 files:</div>
+      <ul>
+        <li><strong>(AI).json</strong> - Complete data for AI to consume — for scrapers and parsers</li>
+        <li><strong>(HU).txt</strong> - Human-readable report with full annotations</li>
+      </ul>
+    </div>
+    <div class="section">
+      <div class="section-title">🔍 Auto-captured Data</div>
+      <ul>
+        <li>All API requests and responses (complete)</li>
+        <li>Tokens and auth data</li>
+        <li>localStorage / sessionStorage</li>
+        <li>Cookies</li>
+        <li>Request/response headers (complete)</li>
+        <li>Request parameter analysis</li>
+        <li>Response structure analysis</li>
+        <li>Security issue detection</li>
+      </ul>
+    </div>
+    <div class="section">
+      <div class="section-title">✨ Highlights</div>
+      <ul class="accent">
+        <li>Real-time API counter (shown while recording)</li>
+        <li>Full request/response body capture</li>
+        <li>Storage and cookie capture</li>
+        <li>10 built-in API category detectors</li>
+        <li>Security issue detection and scoring</li>
+      </ul>
+    </div>
+    <div class="section" id="status">Extension idle</div>
+  </body>
+</html>
